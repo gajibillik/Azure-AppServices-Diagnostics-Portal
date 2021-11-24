@@ -2,7 +2,7 @@
   <nav class="navbar-fixed-top header-nav" role="navigation">
     <div style="display: flex;">
       <div class="header-title" role="button" (click)="navigateToLandingPage()" (keyup.enter)="navigateToLandingPage()">
-        <img [src]="applensLogo" alt="Applens" class="header-img">
+        <img src="/assets/img/Applens-Logo.svg" alt="Applens" class="header-img">
         <div class="ml-3" style="font-weight: 600;">AppLens (Preview)</div>
       </div>
       <div class="resource-info">
@@ -12,8 +12,18 @@
       </div>
     </div>
 
-    <div *ngIf="userPhotoSource !== ''" style="margin-right: 16px;">
+    <div *ngIf="userPhotoSource !== ''" class="user-photo-container" (click)="openCallout()" (keyup.enter)="openCallout()" tabindex="0">
       <img [src]="userPhotoSource" alt="User Profile Photo" class="avatar header-img">
     </div>
   </nav>
 </header>
+
+<div *ngIf="showCallout" class="header-callout">
+  <div class="user-setting-section" style="height: 80%;">
+    <fab-toggle [onnText]="'Expand'" [offText]="'Collapse'" [label]="'Expand Analysis Card'" [checked]="expandCheckCard" (onChange)="toggleExpandCheckCard($event)"></fab-toggle>
+  </div>
+  <div class="user-setting-section" style="border-top: 1px solid gray;">
+    <fab-primary-button (onClick)="applyUserSettingChange()" contentClass="mr-5">Apply</fab-primary-button>
+    <fab-default-button (onClick)="cancelUserSettingChange()">Cancel</fab-default-button>
+  </div>
+</div>
