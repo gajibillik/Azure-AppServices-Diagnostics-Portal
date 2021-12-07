@@ -18,6 +18,7 @@ steps:
 - task: npmAuthenticate@0
   inputs:
     workingFile: './AngularApp/.npmrc'
+  displayName: 'NPM Authenticate'
 
 - script: |
     cd AngularApp
