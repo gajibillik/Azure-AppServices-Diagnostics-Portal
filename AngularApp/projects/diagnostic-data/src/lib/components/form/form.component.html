@@ -12,7 +12,7 @@
             </fab-tooltip-host>
           </label>
           <div class="col-sm-8 col-md-6">
-            <input type="text" class="form-control" [id]=formInput.internalId [(ngModel)]="formInput.inputValue"
+            <input type="text" class="form-control" [id]="formInput.internalId" [(ngModel)]="formInput.inputValue"
               (keyup)="inputChanged(formInput)" maxlength="150">
 
             <div class="text-danger" *ngIf="formInput.displayValidation">Please provide a value.</div>
@@ -64,7 +64,7 @@
     <!-- Display form buttons -->
     <div class="btn-toolbar">
       <ng-template ngFor let-formButton [ngForOf]="element.formButtons">
-        <button [ngClass]="getButtonClass(formButton.buttonStyle)" type="button" [id]=formButton.internalId
+        <button [ngClass]="getButtonClass(formButton.buttonStyle)" type="button" [id]="formButton.internalId"
           (click)="OnSubmitFormAction(element.formId, formButton.inputId)">
           {{formButton.inputLabel}}
         </button>

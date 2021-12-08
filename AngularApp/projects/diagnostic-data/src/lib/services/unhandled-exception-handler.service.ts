@@ -31,6 +31,7 @@ export class UnhandledExceptionHandlerService extends ErrorHandler{
             }
 
             logService.logException(error, "unhandled", props, SeverityLevel.Critical);
+            console.log(error);
         }
         catch (err) {
             // Squash logging error
